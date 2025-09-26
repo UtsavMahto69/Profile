@@ -1,0 +1,545 @@
+        /* --- LOADER STYLES --- */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            overflow: hidden;
+            animation: hideLoader 0s ease-in 2s forwards;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateY(100%);
+        }
+
+        .slide.black {
+            background-color: #212121;
+            z-index: 1;
+            animation: slideUp 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0s forwards,
+                slideUpExit 0.4s cubic-bezier(0.65, 0, 0.35, 1) 1.5s forwards;
+        }
+
+        .slide.red {
+            background-color: #ff2000;
+            z-index: 2;
+            animation: slideUp 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0.15s forwards,
+                slideUpExit 0.4s cubic-bezier(0.65, 0, 0.35, 1) 1.4s forwards;
+        }
+
+        .drop-object {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            width: 150px;
+            opacity: 0;
+            animation: dropIn 0.5s cubic-bezier(0.76, 0, 0.24, 1) 0.6s forwards;
+        }
+
+        .drop-shadow-effect {
+            position: absolute;
+            top: calc(50% + 60px); /* Position it under the object */
+            left: 50%;
+            width: 120px;
+            height: 15px;
+            background-color: rgba(0, 0, 0, 0.25);
+            border-radius: 50%;
+            filter: blur(8px);
+            z-index: 3; /* Ensure it's behind the object */
+            opacity: 0;
+            transform: translateX(-50%);
+            animation: shadowIn 0.5s cubic-bezier(0.76, 0, 0.24, 1) 0.6s forwards;
+        }
+
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUpExit {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-100%);
+            }
+        }
+
+        @keyframes dropIn {
+            0% {
+                transform: translate(-50%, -200%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+        @keyframes shadowIn {
+            0% {
+                transform: translateX(-50%) scale(0.3);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes hideLoader {
+            to {
+                visibility: hidden;
+            }
+        }
+
+        /* --- GLOBAL & PAGE STYLES --- */
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background-color: #efefef;
+            color: #212121;
+            cursor: none;
+            overflow-x: hidden;
+        }
+
+        * {
+            cursor: none;
+        }
+
+        .highlight {
+            color: #ff2000;
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        .cursor-dot, .cursor-follower {
+            display: none; /* Hide custom cursor on touch devices */
+        }
+        @media (pointer: fine) {
+            .cursor-dot {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 8px;
+                height: 8px;
+                background-color: #212121;
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                z-index: 9999;
+                transition: transform 0.1s ease-out;
+            }
+
+            .cursor-follower {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 20px;
+                height: 20px;
+                background-color: #ff2000;
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                z-index: 9998;
+                transition: width 0.4s ease, height 0.4s ease, background-color 0.4s ease;
+            }
+        }
+
+
+        /* --- MARQUEE --- */
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-content span {
+            font-size: clamp(2rem, 10vw, 8rem);
+            font-weight: 600;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* --- COMPONENTS & EFFECTS --- */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #212121;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-100%);
+            transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .page-transition.active {
+            transform: translateY(0%);
+        }
+
+        .transition-wipe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ff2000;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+            transition-delay: 0.5s;
+        }
+
+        .page-transition.active .transition-wipe {
+            transform: scaleX(1);
+        }
+
+        .transition-content {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            transition-delay: 0.2s;
+        }
+
+        .page-transition.active .transition-content {
+            opacity: 1;
+        }
+
+        .nav-links a {
+            position: relative;
+            text-decoration: none;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #ff2000;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        #Name {
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+
+        #clock {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            
+        }
+
+        /* --- LETTER HOVER ANIMATION STYLES --- */
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            position: relative;
+            user-select: none;
+        }
+
+        .u--clip {
+            overflow: hidden;
+        }
+
+        .u--rel {
+            position: relative;
+            z-index: 2;
+        }
+
+        .button p {
+            margin: 0;
+            text-shadow: 0px 1.25em currentColor;
+        }
+
+        .button-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            transition: transform 0.735s cubic-bezier(0.65, 0.05, 0, 1);
+        }
+
+        .button:hover .button-bg {
+            transform: scale(0.95);
+        }
+
+        .char {
+            display: inline-block;
+            position: relative;
+        }
+
+        /* --- ADDED: DIRECTIONAL FILL BUTTON STYLES --- */
+        .fill-button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .fill-button::before {
+            content: "";
+            position: absolute;
+            top: var(--y, 50%);
+            left: var(--x, 50%);
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: #ff2000;
+            transition: width 0.5s, height 0.5s;
+            z-index: -1;
+        }
+
+        .fill-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* --- NEW LAYOUT STYLES --- */
+        .about-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #d1d5db; /* gray-300 */
+            text-transform: uppercase;
+            color: #374151; /* gray-700 */
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-family: 'Courier New', monospace;
+        }
+
+        .about-link:hover, .about-link.active-link {
+            background-color: #e5e7eb; /* gray-200 */
+        }
+        
+        /* --- SCROLLING TEXT STYLES --- */
+        .scrolling-text {
+        overflow: hidden;
+        width: 100%;
+        padding: 2rem 0;
+        display: flex;
+        align-items: center;
+        background-color: #e8e8e8;
+        }
+
+        .scrolling-text .rail {
+        display: flex;
+        }
+
+        .scrolling-text .rail h4 {
+        white-space: nowrap;
+        font-size: clamp(1rem, 5vw, 4rem);
+        font-weight: 900;
+        margin-right: 2rem;
+        color: #212121;
+        }
+        /* ADDED: Styles for the image in the scrolling text */
+        .scrolling-text .rail img {
+            height: clamp(1rem, 5vw, 4rem);
+            width: auto;
+            margin-right: 2rem;
+            align-self: center;
+        }
+
+        /* --- MY APPROACH SECTION STYLES --- */
+        .arrow-link:hover svg {
+            transform: translateX(8px);
+        }
+        
+        /* --- INFINITE SLIDER STYLES --- */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 350px; /* Set a fixed height for the slider area */
+            overflow: hidden;
+            display: flex;
+            background-color: #111;
+            border-radius: 1rem;
+            padding: 1rem 0;
+        }
+
+        .slider {
+            display: flex;
+        }
+
+        .slider-wrapper {
+            padding: 15px 20px;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            border-radius: 1rem;
+        }
+
+        .slider-item {
+            width: 300px; /* Adjusted width */
+            height: 220px; /* Adjusted height */
+            background-color: #222;
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border-radius: 0.75rem;
+            text-decoration: none; /* Added for link styling */
+        }
+
+        .bubble {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background-color: #FF2000;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ebebeb;
+            font-size: 12px;
+            transition: width 0.3s, height 0.3s, opacity 0.3s;
+            z-index: 2;
+        }
+
+        .slider-item:hover .bubble {
+            opacity: 1;
+            width: 100px;
+            height: 100px;
+        }
+
+        .bubble span {
+            pointer-events: none;
+            transition: transform 0.3s, font-size 0.3s;
+        }
+
+        .slider-item:hover .bubble span {
+            transform: scale(1.2);
+            font-size: 14px;
+        }
+
+        /* --- RESPONSIVE STYLES FOR TABLET --- */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            /* Adjust padding for main sections on tablets */
+            .main-section .p-6, .main-section .p-8, .main-section .p-16 {
+                padding: 2.5rem; /* 40px */
+            }
+
+            /* Adjust text size for readability on tablets */
+            .main-section .text-base, .main-section .text-xl {
+                font-size: 1rem; /* 16px */
+            }
+            
+            .main-section .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+                --tw-space-y-reverse: 0;
+                margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+                margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+            }
+
+            /* Adjust slider dimensions for tablets */
+            .slider-container {
+                height: 320px;
+            }
+            
+            .slider-item {
+                width: 260px;
+                height: 190px;
+            }
+
+            .slider-wrapper {
+                padding: 12px 15px;
+                margin-right: 15px;
+            }
+
+            .slider-item:hover .bubble {
+                width: 85px;
+                height: 85px;
+            }
+        }
+
+
+        /* --- RESPONSIVE STYLES FOR MOBILE --- */
+        @media (max-width: 768px) {
+            /* Adjust padding for main content sections */
+            .main-section .p-6, .main-section .p-8, .main-section .p-16 {
+                padding: 1.5rem; /* 24px */
+            }
+
+            /* Make text smaller on mobile */
+            .main-section p, .main-section .text-base, .main-section .text-xl {
+                font-size: 0.9rem; /* Approx 14.4px */
+                line-height: 1.6;
+            }
+
+            /* Reduce height of slider area */
+            .slider-container {
+                height: 280px;
+            }
+            
+            /* Reduce size of individual slider items */
+            .slider-item {
+                width: 220px;
+                height: 160px;
+            }
+
+            /* Reduce spacing between slider items */
+            .slider-wrapper {
+                padding: 10px;
+                margin-right: 10px;
+            }
+
+            /* Adjust hover bubble size for smaller items */
+            .slider-item:hover .bubble {
+                width: 70px;
+                height: 70px;
+            }
+        }

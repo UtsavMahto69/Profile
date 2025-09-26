@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAHTO UTSAV</title>
+    <link rel="icon" type="image/png" href="Pictures/me.png" id="icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="style_2.css" />
+    <script src="script_2.js"></script>
+  </head>
+  <body class="antialiased">
+    <div class="loader-wrapper">
+      <img
+        src="Pictures/Air.png"
+        alt="Loading icon"
+        class="drop-object rounded-full"
+      />
+      <div class="drop-shadow-effect"></div>
+      <div class="slide black"></div>
+      <div class="slide red"></div>
+    </div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="page-transition">
+      <div class="transition-wipe"></div>
+      <div class="transition-content">
+        <svg
+          class="w-20 h-20 text-white"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M12 5c.67 0 1.33.17 1.9.5C15.6 6.4 16 7.9 16 9v2c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2V9c0-1.1.4-2.6 2.1-3.5.57-.33 1.23-.5 1.9-.5z"
+          />
+          <path d="M8 13v3c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-3 M8 9h8" />
+          <path d="M9 18v2h6v-2" />
+          <path d="M10 5.5c0-1.1.9-2 2-2s2 .9 2 2" />
+          <path
+            d="M7 13h-2c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h2 M17 13h2c1.1 0 2 .9 2 2v2c1.1 0 2-0.9 2-2h-2"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="min-h-screen flex flex-col">
+      <header id="header-new" class="border-b border-gray-300">
+        <div class="px-[5%]">
+          <nav
+            class="flex flex-col md:flex-row justify-between items-start text-sm md:text-base py-4 gap-4 md:gap-0"
+          >
+            <div class="magnetic-item transition-transform duration-300">
+              <a href="#" class="font-semibold tracking-tight button" id="logo">
+                <div class="u--clip u--rel">
+                  <p data-split="letters">© MAHTO UTSAV</p>
+                </div>
+                <div class="button-bg"></div>
+              </a>
+            </div>
+            <div
+              class="flex flex-col md:flex-row w-full md:w-auto gap-4 md:gap-0"
+            >
+              <div
+                class="pb-4 md:pb-0 md:pr-4 lg:pr-8 border-b md:border-b-0 md:border-r border-gray-300"
+              >
+                <h3 class="text-gray-900 font-medium mb-1">Status</h3>
+                <a
+                  href="https://calendly.com/utsavmahto0001/google-meet-session"
+                  class="block magnetic-item transition-transform duration-300 text-gray-500"
+                  >Currently available for any type of collaboration</a
+                >
+              </div>
+              <div
+                class="py-4 md:py-0 md:px-4 lg:px-8 border-b md:border-b-0 md:border-l border-gray-300"
+              >
+                <h3 class="text-gray-900 font-medium mb-1">Say hi,</h3>
+                <ul
+                  class="flex flex-wrap gap-x-4 gap-y-1 nav-links text-gray-500"
+                >
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://www.instagram.com/utsav_609?igsh=YWl4cG9lNmY0MXU1"
+                      class="magnetic-item transition-transform duration-300"
+                      >Instagram,</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/mr-mahto-utsav-519396290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                      class="magnetic-item transition-transform duration-300"
+                      >Linkedin,</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="http://discordapp.com/users/878469506094215228"
+                      class="magnetic-item transition-transform duration-300"
+                      >Discord,</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://x.com/mahto_ji_05?t=K__epLRZ4LuBlM80lAJRLA&s=09"
+                      class="magnetic-item transition-transform duration-300"
+                      >X</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="pt-4 md:pt-0 md:pl-4 lg:pl-8 md:border-l border-gray-300"
+              >
+                <h3 class="text-gray-900 font-medium mb-1">Navigate</h3>
+                <ul
+                  class="flex flex-wrap gap-x-4 gap-y-1 nav-links text-gray-500"
+                >
+                  <li>
+                    <a
+                      href="Projects.html"
+                      class="magnetic-item transition-transform duration-300"
+                      >Projects,</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="aboutme.html"
+                      class="magnetic-item transition-transform duration-300"
+                      >About Me,</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://calendly.com/utsavmahto0001/google-meet-session"
+                      target="_blank"
+                      class="magnetic-item transition-transform duration-300"
+                      >Contact</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <main class="flex-grow">
+        <div class="px-[5%] pt-16 pb-8">
+          <div
+            class="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-4"
+          >
+            <div class="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 mr-2 text-red-600 transform -rotate-45"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+              <a
+                href="https://calendly.com/utsavmahto0001/google-meet-session"
+                target="_blank"
+                class="text-red-600 font-bold text-sm tracking-widest highlight uppercase button"
+              >
+                <div class="u--clip u--rel">
+                  <p data-split="letters">mahtoutsav123@gmail.com</p>
+                </div>
+                <div class="button-bg"></div>
+              </a>
+            </div>
+            <div class="w-full md:w-1/4 text-left">
+              <p
+                class="font-bold text-sm tracking-widest leading-relaxed uppercase"
+              >
+                A bit about me and<br />how I can support you
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-300">
+          <div class="flex flex-col md:flex-row">
+            <div class="w-full">
+              <div class="scrolling-text">
+                <div class="rail">
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  /><h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                  <h4>DEVELOPMENT</h4>
+                  <img
+                    src="Pictures/DT.png"
+                    alt="Star Divider"
+                    class="rounded-full"
+                  />
+                </div>
+              </div>
+              <section
+                id="who-am-i"
+                class="main-section bg-[#efefef] text-[#212121] border-b border-gray-300"
+              >
+                <div class="bg-[#212121] text-white py-2 px-6 sm:px-8 md:px-16">
+                  <div class="flex items-center gap-x-4">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center bg-[#e8e8e8] text-[#212121] rounded-sm"
+                    >
+                      <span class="text-xs font-bold">1</span>
+                    </div>
+                    <h3
+                      class="text-xs font-bold tracking-widest uppercase"
+                      style="color: #e8e8e8"
+                    >
+                      PROJECTS -- 25 •
+                    </h3>
+                  </div>
+                </div>
+                <div class="p-6 sm:p-8 md:p-16">
+                  <div class="slider-container">
+                    <div class="slider" id="slider">
+                      <!-- UPDATED: Slider items now have links and images -->
+                      <div class="slider-wrapper" data-slide="1">
+                        <a href="#project1" class="slider-item">
+                          <img
+                            src="https://placehold.co/300x220/333/fff?text=Project+1"
+                            alt="Project 1"
+                            class="w-full h-full object-cover absolute top-0 left-0 z-0"
+                          />
+                          <div class="bubble"><span>View Project</span></div>
+                        </a>
+                      </div>
+                      <div class="slider-wrapper" data-slide="2">
+                        <a href="#project2" class="slider-item">
+                          <img
+                            src="Pictures/me.png"
+                            alt="Project 2"
+                            class="w-full h-full object-cover absolute top-0 left-0 z-0"
+                          />
+                          <div class="bubble"><span>View Project</span></div>
+                        </a>
+                      </div>
+                      <div class="slider-wrapper" data-slide="3">
+                        <a href="#project3" class="slider-item">
+                          <img
+                            src="https://placehold.co/300x220/555/fff?text=Project+3"
+                            alt="Project 3"
+                            class="w-full h-full object-cover absolute top-0 left-0 z-0"
+                          />
+                          <div class="bubble"><span>View Project</span></div>
+                        </a>
+                      </div>
+                      <div class="slider-wrapper" data-slide="4">
+                        <a href="#project4" class="slider-item">
+                          <img
+                            src="https://placehold.co/300x220/666/fff?text=Project+4"
+                            alt="Project 4"
+                            class="w-full h-full object-cover absolute top-0 left-0 z-0"
+                          />
+                          <div class="bubble"><span>View Project</span></div>
+                        </a>
+                      </div>
+                      <div class="slider-wrapper" data-slide="5">
+                        <a href="#project5" class="slider-item">
+                          <img
+                            src="https://placehold.co/300x220/777/fff?text=Project+5"
+                            alt="Project 5"
+                            class="w-full h-full object-cover absolute top-0 left-0 z-0"
+                          />
+                          <div class="bubble"><span>View Project</span></div>
+                        </a>
+                      </div>
+                      <div class="slider-wrapper" data-slide="6">
+                        <a href="#project6" class="slider-item">
+                          <img
+                            src="https://placehold.co/300x220/888/fff?text=Project+6"
+                            alt="Project 6"
+                            class="w-full h-full object-cover absolute top-0 left-0 z-0"
+                          />
+                          <div class="bubble"><span>View Project</span></div>
+                        </a>
+                      </div>
+                      <div class="slider-wrapper" data-slide="7">
+                        <a href="#project7" class="slider-item">
+                          <img
+                            src="https://placehold.co/300x220/999/fff?text=Project+7"
+                            alt="Project 7"
+                            class="w-full h-full object-cover absolute top-0 left-0 z-0"
+                          />
+                          <div class="bubble"><span>View Project</span></div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-8 md:gap-16 mt-16">
+                    <div class="w-full flex flex-col">
+                      <p class="text-sm md:text-base leading-relaxed mb-12">
+                        Already have a design ready to go? I take your static
+                        mockups or IJI files and turn them into fast,
+                        responsive, and accessible websites. With clean,
+                        maintainable code and thoughtful interactions, I bring
+                        your designs to life — making sure they not only work
+                        across all devices, but also feel smooth, intuitive, and
+                        alive.
+                      </p>
+                      <p
+                        class="text-red-500 text-xs font-bold tracking-widest leading-loose mt-auto text-center md:text-left"
+                      >
+                        IT'S ALL PART OF MY WAY OF STAYING FRESH, STAYING
+                        CREATIVE, AND STAYING IN MOTION.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section
+                id="my-approach"
+                class="main-section bg-[#efefef] text-[#212121] border-b border-gray-300"
+              >
+                <div class="scrolling-text">
+                  <div class="rail">
+                    <h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    />
+                    <h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    /><h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    /><h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    /><h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    /><h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    /><h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    /><h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    /><h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    />
+                    <h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    />
+                    <h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    />
+                    <h4>FULL PACKAGE</h4>
+                    <img
+                      src="Pictures/PS.png"
+                      alt="Idea Divider"
+                      class="rounded-full"
+                    />
+                  </div>
+                </div>
+                <div class="bg-[#212121] text-white py-2 px-6 sm:px-8 md:px-16">
+                  <div class="flex items-center gap-x-4">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center bg-[#e8e8e8] text-[#212121] rounded-sm"
+                    >
+                      <span class="text-xs font-bold">2</span>
+                    </div>
+                    <h3
+                      class="text-xs font-bold tracking-widest uppercase"
+                      style="color: #e8e8e8"
+                    >
+                      OFFERINGS — SERVICES
+                    </h3>
+                  </div>
+                </div>
+                <div class="p-6 sm:p-8 md:p-16">
+                  <div
+                    class="flex flex-col md:flex-row-reverse gap-8 md:gap-16"
+                  >
+                    <div class="w-full md:w-1/2 flex flex-col justify-center">
+                      <div
+                        class="space-y-8 text-base md:text-xl leading-relaxed text-gray-700"
+                      >
+                        <p>
+                          Need the whole thing handled from the ground up? I'll
+                          collaborate with you to design and build a custom
+                          website that reflects your brand, meets your goals,
+                          and connects with your users. From initial strategy
+                          and wireframes to polished design and final
+                          development, I take care of the entire process. The
+                          result is a fast, responsive, and accessible website —
+                          thoughtfully crafted, with design and code working
+                          seamlessly together.
+                        </p>
+                        <!-- <p>I care a lot about the small stuff — the little hovers, transitions, and animations that most people don't even notice, but definitely feel. Those micro-interactions are what make a site feel smooth, responsive, and alive. I like building things that feel thoughtful, where even the tiniest detail has a purpose.</p> -->
+                      </div>
+                    </div>
+                    <div
+                      class="w-full md:w-1/2 rounded flex items-center justify-center min-h-96"
+                    >
+                      <img
+                        src="https://placehold.co/600x400/d1d5db/4b5563?text=Design+Process"
+                        alt="Design Process Visualization"
+                        class="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="flex justify-between items-center mt-16 pt-8 border-t border-gray-300"
+                  >
+                    <a
+                      href="mailto:mahtoutsav123@gmail.com"
+                      target="_blank"
+                      class="arrow-link"
+                      style="color: #ff2000"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 transition-transform duration-300"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </a>
+                    <a
+                      href="mailto:mahtoutsav123@gmail.com"
+                      target="_blank"
+                      class="button text-sm font-bold tracking-widest uppercase"
+                      style="color: #ff2000"
+                    >
+                      <div class="u--clip u--rel">
+                        <p data-split="letters">SEE MY WORK</p>
+                      </div>
+                      <div class="button-bg"></div>
+                    </a>
+                  </div>
+                </div>
+              </section>
+              <section
+                id="beyond-the-screen"
+                class="main-section bg-[#efefef] text-[#212121] border-b border-gray-300"
+              >
+                <div class="scrolling-text">
+                  <div class="rail">
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />                    
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                    <h4>WEBSITE LAUNCH</h4>
+                    <img
+                      src="Pictures/WL.png"
+                      alt="Nature Divider"
+                      class="rounded-full"
+                    />
+                  </div>
+                </div>
+                <div class="bg-[#212121] text-white py-2 px-6 sm:px-8 md:px-16">
+                  <div class="flex items-center gap-x-4">
+                    <div
+                      class="w-6 h-6 flex items-center justify-center bg-[#e8e8e8] text-[#212121] rounded-sm"
+                    >
+                      <span class="text-xs font-bold">3</span>
+                    </div>
+                    <h3
+                      class="text-xs font-bold tracking-widest uppercase"
+                      style="color: #e8e8e8"
+                    >
+                      START TO LAUNCH
+                    </h3>
+                  </div>
+                </div>
+                <div class="p-6 sm:p-8 md:p-16">
+                  <div class="flex flex-col md:flex-row gap-8 md:gap-16">
+                    <div class="w-full md:w-1/2 flex flex-col justify-center">
+                      <div
+                        class="space-y-8 text-base md:text-xl leading-relaxed text-gray-700"
+                      >
+                        <p>
+                          Beyond the code, I'm passionate about visual
+                          storytelling and exploring new creative outlets.
+                          Whether it's photography, motion design, or just
+                          sketching out ideas, I believe that a broad creative
+                          perspective leads to more interesting and
+                          human-centered digital work.
+                        </p>
+                        <p>
+                          I find inspiration everywhere, from architecture to
+                          nature, and I'm always looking for ways to translate
+                          those ideas into digital form. This multidisciplinary
+                          approach helps me think outside the box and build
+                          experiences that are not just functional but also
+                          emotionally resonant and memorable.
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="w-full md:w-1/2 rounded flex items-center justify-center min-h-96"
+                    >
+                      <img
+                        src="https://placehold.co/600x400/d1d5db/4b5563?text=Photography+Project"
+                        alt="Photography Project Example"
+                        class="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="flex justify-between items-center mt-16 pt-8 border-t border-gray-300"
+                  >
+                    <a
+                      href="mailto:mahtoutsav123@gmail.com"
+                      target="_blank"
+                      class="arrow-link"
+                      style="color: #ff2000"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 transition-transform duration-300"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://www.youtube.com/"
+                      target="_blank"
+                      class="button text-sm font-bold tracking-widest uppercase"
+                      style="color: #ff2000"
+                    >
+                      <div class="u--clip u--rel">
+                        <p data-split="letters">LET'S MAKE AWESOME HAPPEN</p>
+                      </div>
+                      <div class="button-bg"></div>
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="mt-auto">
+        <footer class="w-full bg-[#212121] text-white text-xs md:text-sm">
+          <div class="flex items-center justify-between w-full h-12 px-[5%]">
+            <div class="flex-1 flex justify-start">
+              <div class="flex items-center h-full">
+                <div
+                  id="eye-container"
+                  class="h-full flex items-center justify-center w-10"
+                  style="background-color: #ff2000"
+                >
+                  <svg id="eye-svg" class="w-6 h-6" viewBox="0 0 24 24">
+                    <path
+                      fill="white"
+                      d="M12,4.5C7,4.5,2.73,7.61,1,12c1.73,4.39,6,7.5,11,7.5s9.27-3.11,11-7.5C21.27,7.61,17,4.5,12,4.5z"
+                    />
+                    <circle id="pupil" cx="12" cy="12" r="3" fill="black" />
+                  </svg>
+                </div>
+                <div id="clock" class="px-4">Loading...</div>
+              </div>
+            </div>
+
+            <div class="hidden sm:block flex-shrink-0">
+              <span>DAILY LEARNING</span>
+            </div>
+
+            <div class="flex-1 flex justify-end">
+              <div class="px-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 4.5v15m7.5-7.5h-15"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <div class="marquee border-t border-gray-300 py-4">
+          <div class="marquee-content">
+            <span
+              >LET'S CONNECT<img
+                src="Pictures/MS.png"
+                alt="My Icon"
+                class="inline-block align-middle w-12 h-12 md:w-20 md:h-20 rounded-full mx-4"
+            /></span>
+            <span
+              >LET'S CONNECTY<img
+                src="Pictures/link.png"
+                alt="My Icon"
+                class="inline-block align-middle w-12 h-12 md:w-20 md:h-20 rounded-full mx-4"
+            /></span>
+            <span
+              >LET'S CONNECT<img
+                src="Pictures/MS.png"
+                alt="My Icon"
+                class="inline-block align-middle w-12 h-12 md:w-20 md:h-20 rounded-full mx-4"
+            /></span>
+            <span
+              >LET'S CONNECT<img
+                src="Pictures/link.png"
+                alt="My Icon"
+                class="inline-block align-middle w-12 h-12 md:w-20 md:h-20 rounded-full mx-4"
+            /></span>
+            <span
+              >LET'S CONNECT<img
+                src="Pictures/MS.png"
+                alt="My Icon"
+                class="inline-block align-middle w-12 h-12 md:w-20 md:h-20 rounded-full mx-4"
+            /></span>
+            <span
+              >LET'S CONNECTY<img
+                src="Pictures/link.png"
+                alt="My Icon"
+                class="inline-block align-middle w-12 h-12 md:w-20 md:h-20 rounded-full mx-4"
+            /></span>
+            <span
+              >LET'S CONNECT<img
+                src="Pictures/MS.png"
+                alt="My Icon"
+                class="inline-block align-middle w-12 h-12 md:w-20 md:h-20 rounded-full mx-4"
+            /></span>
+            <span
+              >LET'S CONNECT<img
+                src="Pictures/link.png"
+                alt="My Icon"
+                class="inline-block align-middle w-12 h-12 md:w-20 md:h-20 rounded-full mx-4"
+            /></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
