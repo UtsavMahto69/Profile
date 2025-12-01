@@ -1,396 +1,448 @@
-        /* --- LOADER STYLES --- */
-        .loader-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            overflow: hidden;
-            animation: hideLoader 0s ease-in 2s forwards;
-        }
+/* --- LOADER STYLES --- */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    overflow: hidden;
+    animation: hideLoader 0s ease-in 2s forwards;
+}
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform: translateY(100%);
-        }
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+}
 
-        .slide.black {
-            background-color: #212121;
-            z-index: 1;
-            animation: slideUp 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0s forwards,
-                slideUpExit 0.4s cubic-bezier(0.65, 0, 0.35, 1) 1.5s forwards;
-        }
+.slide.black {
+    background-color: #212121;
+    z-index: 1;
+    animation: slideUp 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0s forwards,
+        slideUpExit 0.4s cubic-bezier(0.65, 0, 0.35, 1) 1.5s forwards;
+}
 
-        .slide.red {
-            background-color: #ff2000;
-            z-index: 2;
-            animation: slideUp 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0.15s forwards,
-                slideUpExit 0.4s cubic-bezier(0.65, 0, 0.35, 1) 1.4s forwards;
-        }
+.slide.red {
+    background-color: #ff2000;
+    z-index: 2;
+    animation: slideUp 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0.15s forwards,
+        slideUpExit 0.4s cubic-bezier(0.65, 0, 0.35, 1) 1.4s forwards;
+}
 
-        .drop-object {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 3;
-            width: 150px;
-            opacity: 0;
-            animation: dropIn 0.5s cubic-bezier(0.76, 0, 0.24, 1) 0.6s forwards;
-        }
+.drop-object {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 150px;
+    opacity: 0;
+    animation: dropIn 0.5s cubic-bezier(0.76, 0, 0.24, 1) 0.6s forwards;
+}
 
-        .drop-shadow-effect {
-            position: absolute;
-            top: calc(50% + 60px); /* Position it under the object */
-            left: 50%;
-            width: 120px;
-            height: 15px;
-            background-color: rgba(0, 0, 0, 0.25);
-            border-radius: 50%;
-            filter: blur(8px);
-            z-index: 3; /* Ensure it's behind the object */
-            opacity: 0;
-            transform: translateX(-50%);
-            animation: shadowIn 0.5s cubic-bezier(0.76, 0, 0.24, 1) 0.6s forwards;
-        }
-
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-            }
-
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUpExit {
-            from {
-                transform: translateY(0);
-            }
-
-            to {
-                transform: translateY(-100%);
-            }
-        }
-
-        @keyframes dropIn {
-            0% {
-                transform: translate(-50%, -200%);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translate(-50%, -50%);
-                opacity: 1;
-            }
-        }
-
-        @keyframes shadowIn {
-            0% {
-                transform: translateX(-50%) scale(0.3);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(-50%) scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes hideLoader {
-            to {
-                visibility: hidden;
-            }
-        }
-
-        /* --- GLOBAL & PAGE STYLES --- */
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background-color: #efefef;
-            color: #212121;
-            cursor: none;
-            overflow-x: hidden;
-        }
-
-        * {
-            cursor: none;
-        }
-
-        .highlight {
-            color: #ff2000;
-        }
-
-        /* --- CUSTOM CURSOR --- */
-        .cursor-dot, .cursor-follower {
-            display: none; /* Hide custom cursor on touch devices */
-        }
-        @media (pointer: fine) {
-            .cursor-dot {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 8px;
-                height: 8px;
-                background-color: #212121;
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                pointer-events: none;
-                z-index: 9999;
-                transition: transform 0.1s ease-out;
-            }
-
-            .cursor-follower {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 20px;
-                height: 20px;
-                background-color: #ff2000;
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                pointer-events: none;
-                z-index: 9998;
-                transition: width 0.4s ease, height 0.4s ease, background-color 0.4s ease;
-            }
-        }
+.drop-shadow-effect {
+    position: absolute;
+    top: calc(50% + 60px); /* Position it under the object */
+    left: 50%;
+    width: 120px;
+    height: 15px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    filter: blur(8px);
+    z-index: 3; /* Ensure it's behind the object */
+    opacity: 0;
+    transform: translateX(-50%);
+    animation: shadowIn 0.5s cubic-bezier(0.76, 0, 0.24, 1) 0.6s forwards;
+}
 
 
-        /* --- MARQUEE --- */
-        .marquee {
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-        }
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
 
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 30s linear infinite;
-        }
+    to {
+        transform: translateY(0);
+    }
+}
 
-        .marquee-content span {
-            font-size: clamp(2rem, 10vw, 8rem);
-            font-weight: 600;
-        }
+@keyframes slideUpExit {
+    from {
+        transform: translateY(0);
+    }
 
-        @keyframes marquee {
-            0% {
-                transform: translateX(0%);
-            }
+    to {
+        transform: translateY(-100%);
+    }
+}
 
-            100% {
-                transform: translateX(-50%);
-            }
-        }
+@keyframes dropIn {
+    0% {
+        transform: translate(-50%, -200%);
+        opacity: 0;
+    }
 
-        /* --- COMPONENTS & EFFECTS --- */
-        .page-transition {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #212121;
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform: translateY(-100%);
-            transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
-        }
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
 
-        .page-transition.active {
-            transform: translateY(0%);
-        }
+@keyframes shadowIn {
+    0% {
+        transform: translateX(-50%) scale(0.3);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
 
-        .transition-wipe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #ff2000;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
-            transition-delay: 0.5s;
-        }
+@keyframes hideLoader {
+    to {
+        visibility: hidden;
+    }
+}
 
-        .page-transition.active .transition-wipe {
-            transform: scaleX(1);
-        }
+/* --- GLOBAL & PAGE STYLES --- */
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-color: #efefef;
+    color: #212121;
+    cursor: none;
+    overflow-x: hidden;
+}
 
-        .transition-content {
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            transition-delay: 0.2s;
-        }
+* {
+    cursor: none;
+}
 
-        .page-transition.active .transition-content {
-            opacity: 1;
-        }
+.highlight {
+    color: #ff2000;
+}
 
-        .nav-links a {
-            position: relative;
-            text-decoration: none;
-            padding-bottom: 4px;
-        }
+/* --- CUSTOM CURSOR --- */
+.cursor-dot, .cursor-follower {
+    display: none; /* Hide custom cursor on touch devices */
+}
+@media (pointer: fine) {
+    .cursor-dot {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background-color: #212121;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.1s ease-out;
+    }
 
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background-color: #ff2000;
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        }
+    .cursor-follower {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background-color: #ff2000;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9998;
+        transition: width 0.4s ease, height 0.4s ease, background-color 0.4s ease;
+    }
+}
 
-        .nav-links a:hover::after {
-            transform: scaleX(1);
-        }
 
-        #Name {
-            font-family: Arial, Helvetica, sans-serif;
-            
-        }
+/* --- MARQUEE --- */
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
 
-        #clock {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            
-        }
+.marquee-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+}
 
-        /* --- LETTER HOVER ANIMATION STYLES --- */
-        .button {
-            display: inline-block;
-            text-decoration: none;
-            position: relative;
-            user-select: none;
-        }
+.marquee-content span {
+    font-size: clamp(2rem, 10vw, 8rem);
+    font-weight: 600;
+}
 
-        .u--clip {
-            overflow: hidden;
-        }
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
 
-        .u--rel {
-            position: relative;
-            z-index: 2;
-        }
+    100% {
+        transform: translateX(-50%);
+    }
+}
 
-        .button p {
-            margin: 0;
-            text-shadow: 0px 1.25em currentColor;
-        }
+/* --- COMPONENTS & EFFECTS --- */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #212121;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
 
-        .button-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            transition: transform 0.735s cubic-bezier(0.65, 0.05, 0, 1);
-        }
+.page-transition.active {
+    transform: translateY(0%);
+}
 
-        .button:hover .button-bg {
-            transform: scale(0.95);
-        }
+.transition-wipe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff2000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    transition-delay: 0.5s;
+}
 
-        .char {
-            display: inline-block;
-            position: relative;
-        }
+.page-transition.active .transition-wipe {
+    transform: scaleX(1);
+}
 
-        /* --- ADDED: DIRECTIONAL FILL BUTTON STYLES --- */
-        .fill-button {
-            position: relative;
-            /* Essential for the pseudo-element */
-            overflow: hidden;
-            /* Hides the circle outside the button bounds */
-            z-index: 1;
-            /* Ensures button is on a stacking context */
-        }
+.transition-content {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    transition-delay: 0.2s;
+}
 
-        .fill-button::before {
-            content: "";
-            position: absolute;
-            top: var(--y, 50%);
-            /* Use JS-provided variable, fallback to center */
-            left: var(--x, 50%);
-            /* Use JS-provided variable, fallback to center */
-            transform: translate(-50%, -50%);
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: #ff2000;
-            /* The red fill color */
-            transition: width 0.5s, height 0.5s;
-            z-index: -1;
-            /* Place the fill effect behind the text */
-        }
+.page-transition.active .transition-content {
+    opacity: 1;
+}
 
-        .fill-button:hover::before {
-            width: 300px;
-            /* Make it large enough to cover the button */
-            height: 300px;
-        }
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 4px;
+}
 
-        /* --- NEW LAYOUT STYLES --- */
-        .about-link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 1px solid #d1d5db; /* gray-300 */
-            text-transform: uppercase;
-            color: #374151; /* gray-700 */
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-            font-family: 'Courier New', monospace;
-        }
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ff2000;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
 
-        .about-link:hover, .about-link.active-link {
-            background-color: #e5e7eb; /* gray-200 */
-        }
-        
-        /* --- SCROLLING TEXT STYLES --- */
-        .scrolling-text {
-        overflow: hidden;
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+#Name {
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+#clock {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    
+}
+
+/* --- LETTER HOVER ANIMATION STYLES --- */
+.button {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    user-select: none;
+}
+
+.u--clip {
+    overflow: hidden;
+}
+
+.u--rel {
+    position: relative;
+    z-index: 2;
+}
+
+.button p {
+    margin: 0;
+    text-shadow: 0px 1.25em currentColor;
+}
+
+.button-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transition: transform 0.735s cubic-bezier(0.65, 0.05, 0, 1);
+}
+
+.button:hover .button-bg {
+    transform: scale(0.95);
+}
+
+.char {
+    display: inline-block;
+    position: relative;
+}
+
+/* --- ADDED: DIRECTIONAL FILL BUTTON STYLES --- */
+.fill-button {
+    position: relative;
+    /* Essential for the pseudo-element */
+    overflow: hidden;
+    /* Hides the circle outside the button bounds */
+    z-index: 1;
+    /* Ensures button is on a stacking context */
+}
+
+.fill-button::before {
+    content: "";
+    position: absolute;
+    top: var(--y, 50%);
+    /* Use JS-provided variable, fallback to center */
+    left: var(--x, 50%);
+    /* Use JS-provided variable, fallback to center */
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: #ff2000;
+    /* The red fill color */
+    transition: width 0.5s, height 0.5s;
+    z-index: -1;
+    /* Place the fill effect behind the text */
+}
+
+.fill-button:hover::before {
+    width: 300px;
+    /* Make it large enough to cover the button */
+    height: 300px;
+}
+
+/* --- NEW LAYOUT STYLES --- */
+.about-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #d1d5db; /* gray-300 */
+    text-transform: uppercase;
+    color: #374151; /* gray-700 */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.about-link:hover, .about-link.active-link {
+    background-color: #e5e7eb; /* gray-200 */
+}
+
+/* --- SCROLLING TEXT STYLES --- */
+.scrolling-text {
+overflow: hidden;
+width: 100%;
+padding: 2rem 0;
+display: flex;
+align-items: center;
+background-color: #e8e8e8;
+}
+
+.scrolling-text .rail {
+display: flex;
+}
+
+.scrolling-text .rail h4 {
+white-space: nowrap;
+font-size: clamp(1rem, 5vw, 4rem);
+font-weight: 900;
+margin-right: 2rem;
+color: #212121;
+}
+/* ADDED: Styles for the image in the scrolling text */
+.scrolling-text .rail img {
+    height: clamp(1rem, 5vw, 4rem);
+    width: auto;
+    margin-right: 2rem;
+    align-self: center;
+}
+
+/* --- MY APPROACH SECTION STYLES --- */
+.arrow-link:hover svg {
+    transform: translateX(8px);
+}
+
+/* --- ADDED: RESPONSIVE MEDIA QUERIES --- */
+
+/* TABLET (Horizontal Mobile) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .main-section .p-6, .main-section .p-8, .main-section .p-16 {
+        padding: 2.5rem;
+    }
+    .main-section .text-base, .main-section .text-xl {
+        font-size: 1rem;
+    }
+}
+
+/* MOBILE (Phones) */
+@media (max-width: 767px) {
+    /* Prevent horizontal scrolling on body */
+    body, html {
+        overflow-x: hidden;
         width: 100%;
-        padding: 2rem 0;
-        display: flex;
-        align-items: center;
-        background-color: #e8e8e8;
-        }
+    }
 
-        .scrolling-text .rail {
-        display: flex;
-        }
+    /* Reduce Header Padding */
+    header .py-4 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 
-        .scrolling-text .rail h4 {
-        white-space: nowrap;
-        font-size: clamp(1rem, 5vw, 4rem);
-        font-weight: 900;
-        margin-right: 2rem;
-        color: #212121;
-        }
-        /* ADDED: Styles for the image in the scrolling text */
-        .scrolling-text .rail img {
-            height: clamp(1rem, 5vw, 4rem);
-            width: auto;
-            margin-right: 2rem;
-            align-self: center;
-        }
+    /* Adjust padding for main content sections */
+    .px-\[5\%\] {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
 
-        /* --- MY APPROACH SECTION STYLES --- */
-        .arrow-link:hover svg {
-            transform: translateX(8px);
-        }
+    /* Make text readable on mobile */
+    p {
+        font-size: 0.95rem; 
+        line-height: 1.6;
+    }
+
+    /* Fix Marquee Text Size */
+    .marquee-content span {
+        font-size: 2.5rem; 
+    }
+    
+    /* Fix the "Scrolling Text" rails */
+    .scrolling-text .rail h4 {
+        font-size: 2rem;
+    }
+    .scrolling-text .rail img {
+        height: 2rem;
+    }
+}
